@@ -66,7 +66,8 @@ allow="autoplay">
 
 <!-- Intro -->
 <div id="intro" class="screen">
-    <h1>Hey Kutte 💌</h1>
+    <h1>Hlw CD khanbashi 💌</h1>
+    <h6>তোর জন্য ওয়েব ডিজাইন শেখা লাগলো...</h6>
     <p>I have something special for you...</p>
     <button onclick="start()">Click Here 💖</button>
 </div>
