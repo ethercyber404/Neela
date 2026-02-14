@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Special Valentine</title>
+<title>For Eyza 💖</title>
 
 <style>
 body{
@@ -13,10 +13,10 @@ body{
     overflow:hidden;
 }
 
-/* Common */
 .screen{
     display:none;
     padding-top:120px;
+    color:white;
 }
 
 button{
@@ -29,21 +29,8 @@ button{
     transition:.3s;
 }
 
-/* Intro */
-#intro{
-    display:block;
-    color:white;
-}
+#intro{ display:block; }
 
-input{
-    padding:12px;
-    font-size:18px;
-    border-radius:20px;
-    border:none;
-    text-align:center;
-}
-
-/* Question */
 #no{
     position:absolute;
     background:gray;
@@ -52,11 +39,6 @@ input{
 
 #yes{
     background:#ff4d88;
-    color:white;
-}
-
-/* Final */
-#final{
     color:white;
 }
 
@@ -74,44 +56,35 @@ input{
 
 <body>
 
-<!-- Screen 1 -->
+<!-- Intro -->
 <div id="intro" class="screen">
-    <h1>Welcome 💌</h1>
-    <p>Enter your name first...</p>
-    <input type="text" id="name" placeholder="Your Name">
-    <br>
-    <button onclick="start()">Continue 💖</button>
+    <h1>Hey Eyza 💌</h1>
+    <p>I have something special for you...</p>
+    <button onclick="start()">Click Here 💖</button>
 </div>
 
-<!-- Screen 2 Loading -->
+<!-- Loading -->
 <div id="loading" class="screen">
-    <h1>Checking Compatibility... 💞</h1>
+    <h1>Checking Our Love Compatibility... 💞</h1>
     <h2 id="percent">0%</h2>
 </div>
 
-<!-- Screen 3 Question -->
+<!-- Question -->
 <div id="question" class="screen">
-    <h1 id="questionText"></h1>
+    <h1>Eyza, Will you be my Valentine? 💖</h1>
     <button id="yes">Yes 💘</button>
     <button id="no">No 😜</button>
 </div>
 
-<!-- Screen 4 Final -->
+<!-- Final -->
 <div id="final" class="screen">
-    <h1 id="finalText"></h1>
+    <h1>Yea! Good choice Eyza 😍💞</h1>
     <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" width="250">
 </div>
 
 <script>
 
-let nameInput = document.getElementById("name");
-
 function start(){
-    if(nameInput.value == ""){
-        alert("Please enter your name 😏");
-        return;
-    }
-
     document.getElementById("intro").style.display="none";
     document.getElementById("loading").style.display="block";
 
@@ -130,9 +103,6 @@ function start(){
 function showQuestion(){
     document.getElementById("loading").style.display="none";
     document.getElementById("question").style.display="block";
-
-    document.getElementById("questionText").innerText =
-    nameInput.value + ", Will you be my Valentine? 💖";
 }
 
 let noBtn = document.getElementById("no");
@@ -152,15 +122,11 @@ noBtn.addEventListener("mouseover", function(){
 yesBtn.addEventListener("click", function(){
     document.getElementById("question").style.display="none";
     document.getElementById("final").style.display="block";
-
-    document.getElementById("finalText").innerText =
-    "Yea! Good choice " + nameInput.value + " 😍💞";
-
     launchHearts();
 });
 
 function launchHearts(){
-    for(let i=0;i<40;i++){
+    for(let i=0;i<50;i++){
         let heart=document.createElement("div");
         heart.classList.add("heart");
         heart.innerHTML="💖";
