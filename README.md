@@ -2,6 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <title>tHeEtHeR</title>
+
 <style>
 body{
     margin:0;
@@ -31,7 +32,7 @@ birdImg.src = "Alamin.png";
 
 // ===== SOUNDS =====
 const tapSound = new Audio("tap.mp3");
-const gameOverSound = new Audio("tap.mp3");
+const gameOverSound = new Audio("gameover.mp3");
 
 // ===== BIRD =====
 let bird = {
@@ -52,6 +53,7 @@ let frame = 0;
 let score = 0;
 let gameOver = false;
 
+// ===== CONTROLS =====
 document.addEventListener("click", flap);
 document.addEventListener("touchstart", flap);
 
@@ -65,16 +67,20 @@ function flap(){
     }
 }
 
+// ===== DRAW BIRD =====
 function drawBird(){
+    if(!birdImg.complete) return;
+
     ctx.save();
     ctx.beginPath();
     ctx.arc(bird.x + bird.width/2, bird.y + bird.height/2, 30, 0, Math.PI*2);
     ctx.closePath();
-    ctx.clip(); // circle crop effect
+    ctx.clip();
     ctx.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
     ctx.restore();
 }
 
+// ===== DRAW PIPES =====
 function drawPipes(){
     pipes.forEach(pipe => {
         ctx.fillStyle = "#2ecc71";
@@ -83,6 +89,7 @@ function drawPipes(){
     });
 }
 
+// ===== UPDATE =====
 function update(){
     if(gameOver) return;
 
@@ -121,6 +128,7 @@ function update(){
     score++;
 }
 
+// ===== END GAME =====
 function endGame(){
     if(!gameOver){
         gameOver = true;
@@ -128,6 +136,7 @@ function endGame(){
     }
 }
 
+// ===== DRAW =====
 function draw(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     drawBird();
@@ -145,16 +154,21 @@ function draw(){
     }
 }
 
+// ===== GAME LOOP =====
 function gameLoop(){
     update();
     draw();
     requestAnimationFrame(gameLoop);
 }
 
-gameLoop();
+// Image load হলে game start হবে
+birdImg.onload = function(){
+    gameLoop();
+};
 </script>
 
 </body>
 </html>
+
 
 
