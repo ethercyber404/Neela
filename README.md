@@ -1,8 +1,7 @@
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Flappy Bird CG Version</title>
+<title>Ether vs Al_Amin</title>
 <style>
 body{
     margin:0;
